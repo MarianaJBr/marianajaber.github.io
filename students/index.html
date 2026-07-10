@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Projects — Mariana Jaber</title>
+<meta name="description" content="Thesis and internship opportunities in cosmology with Mariana Jaber's group at NCBJ Warsaw. Topics span peculiar velocities, the cosmic web, dark energy, and modified gravity.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 fill=%22%230A0E1F%22/><circle cx=%2216%22 cy=%2216%22 r=%229%22 fill=%22none%22 stroke=%22%23E2A03F%22 stroke-width=%222%22 stroke-dasharray=%223 3%22/><circle cx=%2220%22 cy=%2218%22 r=%226%22 fill=%22none%22 stroke=%22%235FA8A0%22 stroke-width=%222%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#0A0E1F;
+    --panel:#131A33;
+    --panel-soft:#1A2240;
+    --paper:#F3EFE4;
+    --gold:#E2A03F;
+    --teal:#5FA8A0;
+    --ink:#EDEAE0;
+    --ink-soft:#98A0BE;
+    --rule:rgba(152,160,190,0.22);
+    --max:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--void);color:var(--ink);font-family:'Inter',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;margin:0;}
+  p{margin:0;}
+  a{color:var(--gold);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
+  .mono{font-family:'IBM Plex Mono',monospace;letter-spacing:0.03em;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:14px;}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(10,14,31,0.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);}
+  nav .bar{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--ink);}
+  .brand svg{width:26px;height:26px;flex-shrink:0;}
+  .navlinks{display:flex;gap:26px;list-style:none;margin:0;padding:0;}
+  .navlinks a{color:var(--ink-soft);font-size:14.5px;font-weight:500;}
+  .navlinks a:hover{color:var(--gold);text-decoration:none;}
+  .navtoggle{display:none;background:none;border:1px solid var(--rule);color:var(--ink);padding:8px 12px;border-radius:6px;font:inherit;}
+  @media(max-width:760px){
+    .navlinks{position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--panel);border-bottom:1px solid var(--rule);max-height:0;overflow:hidden;transition:max-height 0.25s ease;}
+    .navlinks.open{max-height:380px;}
+    .navlinks a{display:block;padding:14px 28px;border-top:1px solid var(--rule);}
+    .navtoggle{display:inline-block;}
+  }
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:80px 0 88px;border-bottom:1px solid var(--rule);}
+  .web-field{position:absolute;inset:0;z-index:0;opacity:0.4;}
+  .hero .wrap{position:relative;z-index:1;max-width:740px;}
+  .hero h1{font-size:clamp(34px,5vw,52px);line-height:1.06;color:var(--paper);}
+  .hero .lede{margin-top:20px;font-size:18px;color:var(--ink-soft);max-width:58ch;}
+  .hero .lede strong{color:var(--ink);}
+
+  /* filter bar */
+  .filter-bar{
+    display:flex;gap:10px;flex-wrap:wrap;
+    padding:28px 0 0;
+  }
+  .filter-btn{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.06em;
+    padding:8px 16px;border-radius:100px;
+    border:1px solid var(--rule);background:none;color:var(--ink-soft);
+    cursor:pointer;transition:border-color 0.15s,color 0.15s;
+  }
+  .filter-btn:hover,.filter-btn.active{border-color:var(--gold);color:var(--gold);}
+  .filter-btn[data-filter="open"].active{border-color:var(--teal);color:var(--teal);}
+
+  /* project grid */
+  .projects{padding:64px 0 96px;}
+  .project-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;}
+
+  .pcard{
+    border:1px solid var(--rule);border-radius:4px;
+    padding:30px;background:var(--panel-soft);
+    display:flex;flex-direction:column;
+    transition:border-color 0.15s;
+  }
+  .pcard:hover{border-color:rgba(152,160,190,0.5);}
+  .pcard.open-card{border-left:3px solid var(--teal);}
+  .pcard.defended-card{border-left:3px solid var(--gold);}
+  .pcard.progress-card{border-left:3px solid rgba(224,160,63,0.45);}
+
+  .pcard-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px;}
+  .pcard-tag{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .status-badge{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;
+    padding:4px 10px;border-radius:100px;white-space:nowrap;flex-shrink:0;
+  }
+  .badge-defended{background:rgba(226,160,63,0.12);color:var(--gold);border:1px solid rgba(226,160,63,0.3);}
+  .badge-progress{background:rgba(226,160,63,0.06);color:rgba(226,160,63,0.6);border:1px solid rgba(226,160,63,0.15);}
+  .badge-open{background:rgba(95,168,160,0.1);color:var(--teal);border:1px solid rgba(95,168,160,0.3);}
+
+  .pcard h3{font-size:20px;color:var(--ink);margin-bottom:12px;line-height:1.3;}
+  .pcard .hook{font-style:italic;color:var(--ink-soft);font-size:15.5px;margin-bottom:14px;line-height:1.55;}
+  .pcard .body{color:var(--ink-soft);font-size:15px;line-height:1.6;flex-grow:1;}
+  .pcard .methods{
+    margin-top:18px;padding-top:16px;border-top:1px solid var(--rule);
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);
+  }
+  .pcard .methods strong{color:var(--teal);font-weight:500;}
+
+  /* contact strip */
+  .contact-strip{
+    background:var(--panel);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    padding:56px 0;
+  }
+  .contact-strip h2{font-size:clamp(24px,3vw,32px);color:var(--paper);margin-bottom:14px;}
+  .contact-strip p{color:var(--ink-soft);font-size:16px;max-width:54ch;margin-bottom:24px;}
+  .contact-strip a.cta{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'IBM Plex Mono',monospace;font-size:13.5px;
+    padding:12px 22px;border-radius:4px;border:1px solid var(--gold);color:var(--gold);
+  }
+  .contact-strip a.cta:hover{background:var(--gold);color:var(--void);text-decoration:none;}
+
+  footer{border-top:1px solid var(--rule);padding:36px 0 48px;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  footer p{color:var(--ink-soft);font-size:13.5px;}
+  footer .navlinks-foot a{color:var(--ink-soft);font-size:13.5px;margin-left:18px;}
+  footer .navlinks-foot a:hover{color:var(--gold);}
+
+  ::selection{background:var(--teal);color:var(--void);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="bar wrap" style="padding-left:0;padding-right:0;">
+    <a href="../index.html" class="brand" aria-label="Mariana Jaber home">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="14" cy="14" r="9" fill="none" stroke="var(--gold)" stroke-width="2" stroke-dasharray="2.5 2.5"/>
+        <circle cx="19" cy="18" r="6" fill="none" stroke="var(--teal)" stroke-width="2"/>
+      </svg>
+      Mariana Jaber
+    </a>
+    <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#research">Research</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../cv/CV.pdf">CV ↗</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <svg class="web-field" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g stroke="var(--rule)" stroke-width="1" fill="none">
+      <path d="M50 80 L300 180 L520 90 L760 220 L980 120 L1150 240"/>
+      <path d="M120 380 L340 280 L600 400 L880 340 L1100 440"/>
+      <path d="M300 180 L340 280"/><path d="M520 90 L600 400" stroke-opacity="0.5"/>
+      <path d="M760 220 L880 340"/><path d="M980 120 L1100 440" stroke-opacity="0.5"/>
+    </g>
+    <g fill="var(--ink-soft)" opacity="0.7">
+      <circle cx="50" cy="80" r="2.5"/><circle cx="300" cy="180" r="2.5"/>
+      <circle cx="520" cy="90" r="2.5"/><circle cx="760" cy="220" r="2.5"/>
+      <circle cx="980" cy="120" r="2.5"/><circle cx="1150" cy="240" r="2.5"/>
+      <circle cx="120" cy="380" r="2.5"/><circle cx="340" cy="280" r="2.5"/>
+      <circle cx="600" cy="400" r="2.5"/><circle cx="880" cy="340" r="2.5"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow">Thesis &amp; internship opportunities</span>
+    <h1>Looking for a thesis or internship in cosmology?</h1>
+    <p class="lede">Here are some projects currently open in our group — ranging from analytical theory to numerical simulations and observational data analysis. If any of these spark your interest, or if you have your own ideas that connect to our research themes, <strong>get in touch</strong>.</p>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All projects</button>
+      <button class="filter-btn" data-filter="open">Open</button>
+      <button class="filter-btn" data-filter="defended">Defended</button>
+      <button class="filter-btn" data-filter="progress">In progress</button>
+    </div>
+  </div>
+</header>
+
+<div class="projects">
+  <div class="wrap">
+    <div class="project-list" id="project-list">
+
+      <!-- Project 1 — Hubble tension -->
+      <div class="pcard defended-card" data-status="defended">
+        <div class="pcard-top">
+          <span class="pcard-tag">Peculiar velocities · Beyond ΛCDM</span>
+          <span class="status-badge badge-defended">Defended</span>
+        </div>
+        <h3>Hubble tension &amp; evolving dark matter</h3>
+        <p class="hook">The universe's expansion rate is one of the most precisely measured quantities in cosmology — and yet two independent ways of measuring it disagree at a level too large to ignore. Something is missing from our model.</p>
+        <p class="body">Can a dark matter component with a slowly evolving equation of state resolve the H₀ tension? This master's thesis derived the perturbation equations for such a model and studied how small-scale density fluctuations grow differently compared to standard ΛCDM — opening a route to a sequel publication to Naidoo et al. (2022).</p>
+        <div class="methods"><strong>Methods:</strong> perturbation theory · ODE solving (Python/Mathematica) · cosmological background evolution</div>
+      </div>
+
+      <!-- Project 4 — Timing argument -->
+      <div class="pcard defended-card" data-status="defended">
+        <div class="pcard-top">
+          <span class="pcard-tag">Local universe · Dark energy</span>
+          <span class="status-badge badge-defended">Defended</span>
+        </div>
+        <h3>Dark energy &amp; the Local Group</h3>
+        <p class="hook">Our nearest galactic neighbour, Andromeda, is falling toward us. From the details of that fall — how fast, from how far, over how long — we can weigh the Local Group. But does a cosmological constant change the answer?</p>
+        <p class="body">This bachelor's thesis solved the Timing Argument equation — the two-body problem in an expanding universe — with and without a cosmological constant Λ, assessing whether and how much dark energy alters our inference of the Local Group mass.</p>
+        <div class="methods"><strong>Methods:</strong> classical mechanics · numerical ODE solving · cosmological dynamics</div>
+      </div>
+
+      <!-- Project 5 — Galaxy mergers & cosmic web -->
+      <div class="pcard progress-card" data-status="progress">
+        <div class="pcard-top">
+          <span class="pcard-tag">Cosmic web · Galaxy formation</span>
+          <span class="status-badge badge-progress">In progress</span>
+        </div>
+        <h3>Cosmic web &amp; galaxy merger multiplicity</h3>
+        <p class="hook">The majority of galaxy mergers are binary — two galaxies colliding. But a non-negligible fraction involve multiple galaxies merging at once. How does that fraction depend on where you live in the cosmic web?</p>
+        <p class="body">Using IllustrisTNG and a new public pipeline (Mack &amp; Genel 2025), this master's thesis quantifies how the large-scale cosmic web environment — voids, walls, filaments, nodes — modulates the frequency and nature of multiple-galaxy mergers, potentially informing new models of galaxy formation.</p>
+        <div class="methods"><strong>Methods:</strong> hydrodynamical simulations (IllustrisTNG) · merger trees · cosmic web segmentation · HPC (PLGrid)</div>
+      </div>
+
+      <!-- Open A — Pairwise velocities emulator -->
+      <div class="pcard open-card" data-status="open">
+        <div class="pcard-top">
+          <span class="pcard-tag">Peculiar velocities · Machine learning</span>
+          <span class="status-badge badge-open">Open</span>
+        </div>
+        <h3>Pairwise velocities &amp; the local universe</h3>
+        <p class="hook">Cosmology describes the universe as a whole — but we observe it from one particular corner of it. Our local environment is not average, and if we ignore that, our measurements of how fast structure grows may be quietly biased.</p>
+        <p class="body">This project trains a machine-learning emulator on simulated galaxy pair statistics to explore how different profiles of pairwise velocities in the local universe propagate into inferences of fσ₈ — the key parameter combining the growth rate of structure with the amplitude of matter clustering.</p>
+        <div class="methods"><strong>Methods:</strong> N-body simulations · emulator / ML methods (Gaussian processes or neural networks) · statistical inference</div>
+      </div>
+
+      <!-- Open B — Mass profile from timing argument -->
+      <div class="pcard open-card" data-status="open">
+        <div class="pcard-top">
+          <span class="pcard-tag">Local universe · Dynamics</span>
+          <span class="status-badge badge-open">Open</span>
+        </div>
+        <h3>A mass profile of the Local Group</h3>
+        <p class="hook">The Timing Argument is a powerful but blunt tool: it gives you one number — the total mass of the Local Group. What if we could turn it into a scalpel?</p>
+        <p class="body">By applying the Timing Argument not just to the MW–Andromeda pair but to the full population of Milky Way satellite galaxies at different radii, this project constructs a mass profile of the Local Group — enclosed mass as a function of distance — from kinematics alone.</p>
+        <div class="methods"><strong>Methods:</strong> satellite galaxy catalogues · dynamical modelling · numerical methods</div>
+      </div>
+
+      <!-- Open C — Topology of the cosmic web -->
+      <div class="pcard open-card" data-status="open">
+        <div class="pcard-top">
+          <span class="pcard-tag">Cosmic web · Topology</span>
+          <span class="status-badge badge-open">Open</span>
+        </div>
+        <h3>Topology of the cosmic web</h3>
+        <p class="hook">The cosmic web is not random. Filaments connect nodes, voids are bounded by walls, and these structures persist — or dissolve — across cosmic time. Topology gives us a language to describe their shape and their fate.</p>
+        <p class="body">This project uses tools from persistent homology and caustic theory to characterise when and where structures in the cosmic web form, merge, and disappear — asking which topological features are robust signals of the underlying cosmology, and which are noise.</p>
+        <div class="methods"><strong>Methods:</strong> topological data analysis (persistent homology) · N-body simulation data · cosmic web segmentation</div>
+      </div>
+
+      <!-- Open D — Dark energy reconstruction from H(z) -->
+      <div class="pcard open-card" data-status="open">
+        <div class="pcard-top">
+          <span class="pcard-tag">Dark energy · Observations</span>
+          <span class="status-badge badge-open">Open</span>
+        </div>
+        <h3>Reconstructing dark energy from cosmic chronometers</h3>
+        <p class="hook">We don't need to assume a model for dark energy to measure it. Cosmic chronometers — old, passively evolving galaxies whose relative ages tell us how fast the universe was expanding at different moments in history — give us H(z) directly from observations. What does that expansion history tell us about the nature of gravity itself?</p>
+        <p class="body">This project uses H(z) measurements from cosmic chronometers to reconstruct the effective equation of state of dark energy, ω_x(z), within the framework of f(R) gravity — without restricting to any specific functional form such as Hu-Sawicki. The goal is to ask: what family of f(R) theories is consistent with what we actually observe?</p>
+        <div class="methods"><strong>Methods:</strong> Gaussian process regression · H(z) data compilation · f(R) gravity · statistical inference</div>
+      </div>
+
+    </div><!-- /project-list -->
+  </div>
+</div>
+
+<div class="contact-strip">
+  <div class="wrap">
+    <h2>Interested? Get in touch.</h2>
+    <p>Don't see exactly what you're looking for? Write anyway — I'm always open to discussing ideas that connect to the group's research themes.</p>
+    <a class="cta" href="../index.html#contact">Contact →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>© Mariana Jaber 2018–2026. All rights reserved.</p>
+    <nav class="navlinks-foot">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#research">Research</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // mobile nav
+  const toggle = document.getElementById('navtoggle');
+  const links = document.getElementById('navlinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // filter
+  const btns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.pcard');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      cards.forEach(card => {
+        card.style.display = (f === 'all' || card.dataset.status === f) ? '' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
