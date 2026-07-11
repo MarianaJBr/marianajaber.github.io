@@ -62,6 +62,7 @@
   .project-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;align-items:start;}
 
   /* card */
+  .pcard-wrap{display:flex;flex-direction:column;}
   .pcard{border:1px solid var(--rule);border-radius:4px;background:var(--panel-soft);padding:28px;display:flex;flex-direction:column;transition:border-color 0.15s;}
   .pcard:hover{border-color:rgba(152,160,190,0.5);}
   .pcard.open-card{border-left:3px solid var(--teal);}
@@ -176,7 +177,8 @@
   <div class="wrap">
     <div class="project-list" id="project-list">
 
-      <div class="pcard defended-card" data-status="defended">
+      <div class="pcard-wrap" data-status="defended">
+      <div class="pcard defended-card" >
         <div class="pcard-top">
           <span class="pcard-tag">Beyond ΛCDM · Perturbation theory</span>
           <span class="status-badge badge-defended">Defended</span>
@@ -218,8 +220,10 @@
           </div>
         </div>
       </div>
+      </div>
 
-      <div class="pcard defended-card" data-status="defended">
+      <div class="pcard-wrap" data-status="defended">
+      <div class="pcard defended-card" >
         <div class="pcard-top">
           <span class="pcard-tag">Local universe · Dark energy</span>
           <span class="status-badge badge-defended">Defended</span>
@@ -262,8 +266,10 @@
           </div>
         </div>
       </div>
+      </div>
 
-      <div class="pcard progress-card" data-status="progress">
+      <div class="pcard-wrap" data-status="progress">
+      <div class="pcard progress-card" >
         <div class="pcard-top">
           <span class="pcard-tag">Cosmic web · Galaxy formation</span>
           <span class="status-badge badge-progress">In progress</span>
@@ -273,8 +279,10 @@
         <p class="body">Using IllustrisTNG and the public pipeline by Mack &amp; Genel (2025), this master's thesis quantifies how the large-scale cosmic web environment — voids, walls, filaments, nodes — modulates the frequency and nature of multiple-galaxy mergers.</p>
         <div class="methods"><strong>Methods:</strong> IllustrisTNG · merger trees · cosmic web segmentation · HPC (PLGrid)</div>
       </div>
+      </div>
 
-      <div class="pcard open-card" data-status="open">
+      <div class="pcard-wrap" data-status="open">
+      <div class="pcard open-card" >
         <div class="pcard-top">
           <span class="pcard-tag">Peculiar velocities · Machine learning</span>
           <span class="status-badge badge-open">Open</span>
@@ -284,8 +292,10 @@
         <p class="body">The mean pairwise velocity v₁₂ has already been measured from the Quijote simulations and used to constrain fσ₈ via a full likelihood with Cobaya. The same statistic has been measured from constrained simulations of our local universe. The project asks: does our local v₁₂ profile produce a biased fσ₈?</p>
         <div class="methods"><strong>Methods:</strong> N-body simulations · Gaussian process emulator · Cobaya · statistical inference</div>
       </div>
+      </div>
 
-      <div class="pcard open-card" data-status="open">
+      <div class="pcard-wrap" data-status="open">
+      <div class="pcard open-card" >
         <div class="pcard-top">
           <span class="pcard-tag">Local universe · Dynamics</span>
           <span class="status-badge badge-open">Open</span>
@@ -295,8 +305,10 @@
         <p class="body">By applying the Timing Argument to the full population of Milky Way satellite galaxies at different radii, this project constructs a mass profile of the Local Group — enclosed mass as a function of distance from the centre — from kinematics alone.</p>
         <div class="methods"><strong>Methods:</strong> satellite galaxy catalogues · dynamical modelling · numerical methods</div>
       </div>
+      </div>
 
-      <div class="pcard open-card" data-status="open">
+      <div class="pcard-wrap" data-status="open">
+      <div class="pcard open-card" >
         <div class="pcard-top">
           <span class="pcard-tag">Cosmic web · Topology</span>
           <span class="status-badge badge-open">Open</span>
@@ -306,8 +318,10 @@
         <p class="body">This project uses persistent homology and caustic theory to characterise when and where structures in the cosmic web form, merge, and disappear — asking which topological features are robust signals of the underlying cosmology, and which are noise.</p>
         <div class="methods"><strong>Methods:</strong> persistent homology · N-body simulations · cosmic web segmentation</div>
       </div>
+      </div>
 
-      <div class="pcard open-card" data-status="open">
+      <div class="pcard-wrap" data-status="open">
+      <div class="pcard open-card" >
         <div class="pcard-top">
           <span class="pcard-tag">Dark energy · Observations</span>
           <span class="status-badge badge-open">Open</span>
@@ -317,8 +331,10 @@
         <p class="body">This project uses H(z) measurements from cosmic chronometers to reconstruct the effective equation of state of dark energy, ω_x(z), within the framework of f(R) gravity — without restricting to any specific functional form. The goal: what family of f(R) theories is consistent with what we actually observe?</p>
         <div class="methods"><strong>Methods:</strong> Gaussian process regression · H(z) data · f(R) gravity · statistical inference</div>
       </div>
+      </div>
 
-      <div class="pcard open-card" data-status="open">
+      <div class="pcard-wrap" data-status="open">
+      <div class="pcard open-card" >
         <div class="pcard-top">
           <span class="pcard-tag">Dark energy · Bayesian inference</span>
           <span class="status-badge badge-open">Open</span>
@@ -327,6 +343,7 @@
         <p class="hook">The standard cosmological model has a well-known theoretical problem: nobody knows why the cosmological constant has the value it does. Dozens of alternatives have been proposed. But rather than testing them one by one, can we let the data itself rank them objectively?</p>
         <p class="body">This project applies Bayesian model comparison to a set of physically motivated dark energy equations of state — CPL, SEoS, JJE, and the ONE parameterisation family — using CMB, BAO, Type Ia supernovae, and cosmic chronometer data. The goal is to compute Bayes factors and ask which models the data actually prefers.</p>
         <div class="methods"><strong>Methods:</strong> Bayesian inference · MCMC (Cobaya) · Savage–Dickey ratio · CLASS Boltzmann solver</div>
+      </div>
       </div>
 
     </div>
@@ -378,7 +395,7 @@
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const f = btn.dataset.filter;
-      document.querySelectorAll('.pcard').forEach(card => {
+      document.querySelectorAll('.pcard-wrap').forEach(card => {
         card.style.display = (f === 'all' || card.dataset.status === f) ? '' : 'none';
       });
     });
