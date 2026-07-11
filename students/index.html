@@ -4,22 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Student Projects — Mariana Jaber</title>
-<meta name="description" content="Thesis and internship opportunities in cosmology with Mariana Jaber's group at NCBJ Warsaw. Topics span peculiar velocities, the cosmic web, dark energy, and modified gravity.">
+<meta name="description" content="Thesis and internship opportunities in cosmology with Mariana Jaber's group at NCBJ Warsaw.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 fill=%22%230A0E1F%22/><circle cx=%2216%22 cy=%2216%22 r=%229%22 fill=%22none%22 stroke=%22%23E2A03F%22 stroke-width=%222%22 stroke-dasharray=%223 3%22/><circle cx=%2220%22 cy=%2218%22 r=%226%22 fill=%22none%22 stroke=%22%235FA8A0%22 stroke-width=%222%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --void:#0A0E1F;
-    --panel:#131A33;
-    --panel-soft:#1A2240;
-    --paper:#F3EFE4;
-    --gold:#E2A03F;
-    --teal:#5FA8A0;
-    --ink:#EDEAE0;
-    --ink-soft:#98A0BE;
-    --rule:rgba(152,160,190,0.22);
+    --void:#0A0E1F; --panel:#131A33; --panel-soft:#1A2240;
+    --paper:#F3EFE4; --gold:#E2A03F; --teal:#5FA8A0;
+    --ink:#EDEAE0; --ink-soft:#98A0BE; --rule:rgba(152,160,190,0.22);
     --max:1080px;
   }
   *{box-sizing:border-box;}
@@ -30,7 +24,6 @@
   a{color:var(--gold);text-decoration:none;}
   a:hover{text-decoration:underline;}
   a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
-  .mono{font-family:'IBM Plex Mono',monospace;letter-spacing:0.03em;}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
   .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:14px;}
 
@@ -42,7 +35,7 @@
   .navlinks{display:flex;gap:26px;list-style:none;margin:0;padding:0;}
   .navlinks a{color:var(--ink-soft);font-size:14.5px;font-weight:500;}
   .navlinks a:hover{color:var(--gold);text-decoration:none;}
-  .navtoggle{display:none;background:none;border:1px solid var(--rule);color:var(--ink);padding:8px 12px;border-radius:6px;font:inherit;}
+  .navtoggle{display:none;background:none;border:1px solid var(--rule);color:var(--ink);padding:8px 12px;border-radius:6px;font:inherit;cursor:pointer;}
   @media(max-width:760px){
     .navlinks{position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--panel);border-bottom:1px solid var(--rule);max-height:0;overflow:hidden;transition:max-height 0.25s ease;}
     .navlinks.open{max-height:380px;}
@@ -58,69 +51,66 @@
   .hero .lede{margin-top:20px;font-size:18px;color:var(--ink-soft);max-width:58ch;}
   .hero .lede strong{color:var(--ink);}
 
-  /* filter bar */
-  .filter-bar{
-    display:flex;gap:10px;flex-wrap:wrap;
-    padding:28px 0 0;
-  }
-  .filter-btn{
-    font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.06em;
-    padding:8px 16px;border-radius:100px;
-    border:1px solid var(--rule);background:none;color:var(--ink-soft);
-    cursor:pointer;transition:border-color 0.15s,color 0.15s;
-  }
+  /* filter */
+  .filter-bar{display:flex;gap:10px;flex-wrap:wrap;padding:28px 0 0;}
+  .filter-btn{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.06em;padding:8px 16px;border-radius:100px;border:1px solid var(--rule);background:none;color:var(--ink-soft);cursor:pointer;transition:border-color 0.15s,color 0.15s;}
   .filter-btn:hover,.filter-btn.active{border-color:var(--gold);color:var(--gold);}
   .filter-btn[data-filter="open"].active{border-color:var(--teal);color:var(--teal);}
 
-  /* project grid */
+  /* project list */
   .projects{padding:64px 0 96px;}
-  .project-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;}
+  .project-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;align-items:start;}
 
-  .pcard{
-    border:1px solid var(--rule);border-radius:4px;
-    padding:30px;background:var(--panel-soft);
-    display:flex;flex-direction:column;
-    transition:border-color 0.15s;
-  }
+  /* card */
+  .pcard{border:1px solid var(--rule);border-radius:4px;background:var(--panel-soft);padding:28px;display:flex;flex-direction:column;transition:border-color 0.15s;}
   .pcard:hover{border-color:rgba(152,160,190,0.5);}
   .pcard.open-card{border-left:3px solid var(--teal);}
   .pcard.defended-card{border-left:3px solid var(--gold);}
   .pcard.progress-card{border-left:3px solid rgba(224,160,63,0.45);}
-
   .pcard-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px;}
-  .pcard-tag{
-    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
-    color:var(--ink-soft);
-  }
-  .status-badge{
-    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;
-    padding:4px 10px;border-radius:100px;white-space:nowrap;flex-shrink:0;
-  }
+  .pcard-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);}
+  .status-badge{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;padding:4px 10px;border-radius:100px;white-space:nowrap;flex-shrink:0;}
   .badge-defended{background:rgba(226,160,63,0.12);color:var(--gold);border:1px solid rgba(226,160,63,0.3);}
   .badge-progress{background:rgba(226,160,63,0.06);color:rgba(226,160,63,0.6);border:1px solid rgba(226,160,63,0.15);}
   .badge-open{background:rgba(95,168,160,0.1);color:var(--teal);border:1px solid rgba(95,168,160,0.3);}
-
-  .pcard h3{font-size:20px;color:var(--ink);margin-bottom:12px;line-height:1.3;}
-  .pcard .hook{font-style:italic;color:var(--ink-soft);font-size:15.5px;margin-bottom:14px;line-height:1.55;}
-  .pcard .body{color:var(--ink-soft);font-size:15px;line-height:1.6;flex-grow:1;}
-  .pcard .methods{
-    margin-top:18px;padding-top:16px;border-top:1px solid var(--rule);
-    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);
-  }
+  .pcard h3{font-size:19px;color:var(--ink);margin-bottom:10px;line-height:1.3;}
+  .pcard .hook{font-style:italic;color:var(--ink-soft);font-size:15px;margin-bottom:12px;line-height:1.55;}
+  .pcard .body{color:var(--ink-soft);font-size:14.8px;line-height:1.6;flex-grow:1;}
+  .pcard .methods{margin-top:14px;padding-top:14px;border-top:1px solid var(--rule);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink-soft);}
   .pcard .methods strong{color:var(--teal);font-weight:500;}
 
-  /* contact strip */
-  .contact-strip{
-    background:var(--panel);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
-    padding:56px 0;
+  /* expand panel — defended projects only */
+  .detail-toggle{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    width:100%;padding:13px 28px;
+    background:none;border:none;border-top:1px solid var(--rule);
+    color:var(--teal);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;
+    cursor:pointer;text-align:left;transition:background 0.15s,color 0.15s;
   }
+  .detail-toggle:hover{background:rgba(95,168,160,0.06);color:var(--gold);}
+  .detail-toggle .arrow{transition:transform 0.25s;display:inline-block;}
+  .detail-toggle[aria-expanded="true"] .arrow{transform:rotate(180deg);}
+  .pcard-detail{max-height:0;overflow:hidden;transition:max-height 0.35s ease;background:var(--void);border-top:1px solid var(--rule);}
+  .pcard-detail.open{max-height:1600px;}
+  .pcard-detail-inner{padding:24px 28px 28px;}
+  .detail-section{margin-bottom:20px;}
+  .detail-section:last-child{margin-bottom:0;}
+  .detail-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px;}
+  .detail-section p{color:var(--ink-soft);font-size:14.5px;line-height:1.6;}
+  .step-list{list-style:none;margin:0;padding:0;counter-reset:steps;}
+  .step-list li{counter-increment:steps;display:grid;grid-template-columns:24px 1fr;gap:8px;padding:8px 0;border-top:1px solid var(--rule);color:var(--ink-soft);font-size:14.5px;line-height:1.55;}
+  .step-list li:first-child{border-top:none;padding-top:0;}
+  .step-list li::before{content:counter(steps);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--teal);padding-top:2px;}
+  .reading-list{list-style:none;margin:0;padding:0;}
+  .reading-list li{padding:6px 0;border-top:1px solid var(--rule);color:var(--ink-soft);font-size:14px;line-height:1.5;}
+  .reading-list li:first-child{border-top:none;padding-top:0;}
+  .reading-list li::before{content:'— ';color:var(--ink-soft);}
+
+  /* contact strip */
+  .contact-strip{background:var(--panel);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:56px 0;}
   .contact-strip h2{font-size:clamp(24px,3vw,32px);color:var(--paper);margin-bottom:14px;}
   .contact-strip p{color:var(--ink-soft);font-size:16px;max-width:54ch;margin-bottom:24px;}
-  .contact-strip a.cta{
-    display:inline-flex;align-items:center;gap:8px;
-    font-family:'IBM Plex Mono',monospace;font-size:13.5px;
-    padding:12px 22px;border-radius:4px;border:1px solid var(--gold);color:var(--gold);
-  }
+  .contact-strip a.cta{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;padding:12px 22px;border-radius:4px;border:1px solid var(--gold);color:var(--gold);}
   .contact-strip a.cta:hover{background:var(--gold);color:var(--void);text-decoration:none;}
 
   footer{border-top:1px solid var(--rule);padding:36px 0 48px;}
@@ -128,7 +118,6 @@
   footer p{color:var(--ink-soft);font-size:13.5px;}
   footer .navlinks-foot a{color:var(--ink-soft);font-size:13.5px;margin-left:18px;}
   footer .navlinks-foot a:hover{color:var(--gold);}
-
   ::selection{background:var(--teal);color:var(--void);}
 </style>
 </head>
@@ -136,7 +125,7 @@
 
 <nav>
   <div class="bar wrap" style="padding-left:0;padding-right:0;">
-    <a href="../index.html" class="brand" aria-label="Mariana Jaber home">
+    <a href="../index.html" class="brand">
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <circle cx="14" cy="14" r="9" fill="none" stroke="var(--gold)" stroke-width="2" stroke-dasharray="2.5 2.5"/>
         <circle cx="19" cy="18" r="6" fill="none" stroke="var(--teal)" stroke-width="2"/>
@@ -174,7 +163,6 @@
     <span class="eyebrow">Thesis &amp; internship opportunities</span>
     <h1>Looking for a thesis or internship in cosmology?</h1>
     <p class="lede">Here are some projects currently open in our group — ranging from analytical theory to numerical simulations and observational data analysis. If any of these spark your interest, or if you have your own ideas that connect to our research themes, <strong>get in touch</strong>.</p>
-
     <div class="filter-bar">
       <button class="filter-btn active" data-filter="all">All projects</button>
       <button class="filter-btn" data-filter="open">Open</button>
@@ -188,19 +176,49 @@
   <div class="wrap">
     <div class="project-list" id="project-list">
 
-      <!-- Project 1 — Hubble tension -->
       <div class="pcard defended-card" data-status="defended">
         <div class="pcard-top">
-          <span class="pcard-tag">Peculiar velocities · Beyond ΛCDM</span>
+          <span class="pcard-tag">Beyond ΛCDM · Perturbation theory</span>
           <span class="status-badge badge-defended">Defended</span>
         </div>
         <h3>Hubble tension &amp; evolving dark matter</h3>
         <p class="hook">The universe's expansion rate is one of the most precisely measured quantities in cosmology — and yet two independent ways of measuring it disagree at a level too large to ignore. Something is missing from our model.</p>
-        <p class="body">Can a dark matter component with a slowly evolving equation of state resolve the H₀ tension? This master's thesis derived the perturbation equations for such a model and studied how small-scale density fluctuations grow differently compared to standard ΛCDM — opening a route to a sequel publication to Naidoo et al. (2022).</p>
+        <p class="body">Can a dark matter component with a slowly evolving equation of state resolve the H₀ tension? This master's thesis derived the perturbation equations for such a model and studied how small-scale density fluctuations grow differently compared to standard ΛCDM.</p>
         <div class="methods"><strong>Methods:</strong> perturbation theory · ODE solving (Python/Mathematica) · cosmological background evolution</div>
       </div>
+      <button class="detail-toggle" aria-expanded="false">
+        Show steps &amp; reading <span class="arrow">↓</span>
+      </button>
+      <div class="pcard-detail">
+        <div class="pcard-detail-inner">
+          <div class="detail-section">
+            <span class="detail-label">Preliminary steps</span>
+            <ol class="step-list">
+              <li>Get familiar with background cosmology: Friedmann equation, continuity equation, Hubble law. Recommended: Dodelson &amp; Schmidt "Modern Cosmology"; Peebles "Large Scale Structure" §9–13.</li>
+              <li>Derive the relations connecting d/da, d/dt, and d/dz — these are the main independent variables throughout.</li>
+              <li>Express energy contributions as fractional densities Ωᵢ(a). Find matter–radiation equality and dark-energy–matter equality epochs.</li>
+              <li>Plot ρᵢ(a) and Ωᵢ(a) for radiation, matter, and Λ. Enforce flatness. Add the last-scattering epoch.</li>
+              <li>Re-derive the standard growth equation (e.g. eq. 9.76 of Kolb &amp; Turner). Recover known solutions for EdS, radiation-dominated, and mixed universes.</li>
+              <li>Solve the perturbation equations numerically for the evolving dark matter equation of state from Naidoo et al. (2022). How many coupled equations? What value for c²ₛ?</li>
+            </ol>
+          </div>
+          <div class="detail-section">
+            <span class="detail-label">Preliminary reading</span>
+            <ul class="reading-list">
+              <li>Dodelson &amp; Schmidt, "Modern Cosmology" (2nd ed.)</li>
+              <li>Amendola &amp; Tsujikawa, "Dark Energy" §2, §6</li>
+              <li>Kolb &amp; Turner, "The Early Universe" §9</li>
+              <li>Naidoo, Jaber et al. (2022), arXiv:2209.08102</li>
+              <li>Verde, Treu &amp; Riess (2019), Nature Astronomy 3, 891 — H₀ tension review</li>
+            </ul>
+          </div>
+          <div class="detail-section">
+            <span class="detail-label">Expected outcomes</span>
+            <p>Derivation and numerical solution of the perturbation equations for evolving dark matter; comparison with the ΛCDM growth function; assessment of whether the model's perturbation behaviour is viable.</p>
+          </div>
+        </div>
+      </div>
 
-      <!-- Project 4 — Timing argument -->
       <div class="pcard defended-card" data-status="defended">
         <div class="pcard-top">
           <span class="pcard-tag">Local universe · Dark energy</span>
@@ -208,11 +226,43 @@
         </div>
         <h3>Dark energy &amp; the Local Group</h3>
         <p class="hook">Our nearest galactic neighbour, Andromeda, is falling toward us. From the details of that fall — how fast, from how far, over how long — we can weigh the Local Group. But does a cosmological constant change the answer?</p>
-        <p class="body">This bachelor's thesis solved the Timing Argument equation — the two-body problem in an expanding universe — with and without a cosmological constant Λ, assessing whether and how much dark energy alters our inference of the Local Group mass.</p>
+        <p class="body">This bachelor's thesis solved the Timing Argument equation — the two-body problem in an expanding universe — with and without a cosmological constant Λ, assessing whether dark energy alters our inference of the Local Group mass. This project gave rise to ongoing research.</p>
         <div class="methods"><strong>Methods:</strong> classical mechanics · numerical ODE solving · cosmological dynamics</div>
       </div>
+      <button class="detail-toggle" aria-expanded="false">
+        Show steps &amp; reading <span class="arrow">↓</span>
+      </button>
+      <div class="pcard-detail">
+        <div class="pcard-detail-inner">
+          <div class="detail-section">
+            <span class="detail-label">Preliminary steps</span>
+            <ol class="step-list">
+              <li>Read Peebles "Large Scale Structure" §1–5 and §19 (Spherical Collapse). Understand comoving vs. physical coordinates.</li>
+              <li>Review the Timing Argument literature: Kahn &amp; Woltjer (1959); Kroeker &amp; Carlberg (1991); Li &amp; White (2008); van der Marel et al. (2012).</li>
+              <li>Understand the role of Λ in driving background expansion: Amendola &amp; Tsujikawa §6.1.</li>
+              <li>Follow Partridge et al. (2013) eqs. 2–5 to solve the two-body equation for Λ = 0. Compare with their Figure 1.</li>
+              <li>Understand the units of the Λ/3 · r term. What is the fractional density associated with a cosmological constant?</li>
+              <li>Solve the full equation (Λ ≠ 0) numerically for a range of input parameters. Can you find a parametric form?</li>
+              <li>Assess whether adding Λ changes the inferred Local Group mass, and by how much.</li>
+            </ol>
+          </div>
+          <div class="detail-section">
+            <span class="detail-label">Preliminary reading</span>
+            <ul class="reading-list">
+              <li>Peebles, "The Large Scale Structure of the Universe" §1–5, §19</li>
+              <li>Partridge, Lahav &amp; Hoffman (2013), MNRAS 436, L45</li>
+              <li>Kahn &amp; Woltjer (1959), ApJ 130, 705</li>
+              <li>van der Marel et al. (2012), ApJ 753, 8</li>
+              <li>Amendola &amp; Tsujikawa, "Dark Energy" §6.1</li>
+            </ul>
+          </div>
+          <div class="detail-section">
+            <span class="detail-label">Expected outcomes</span>
+            <p>Numerical solution of the Timing Argument with and without Λ; quantification of the effect of dark energy on the inferred Local Group mass.</p>
+          </div>
+        </div>
+      </div>
 
-      <!-- Project 5 — Galaxy mergers & cosmic web -->
       <div class="pcard progress-card" data-status="progress">
         <div class="pcard-top">
           <span class="pcard-tag">Cosmic web · Galaxy formation</span>
@@ -220,11 +270,10 @@
         </div>
         <h3>Cosmic web &amp; galaxy merger multiplicity</h3>
         <p class="hook">The majority of galaxy mergers are binary — two galaxies colliding. But a non-negligible fraction involve multiple galaxies merging at once. How does that fraction depend on where you live in the cosmic web?</p>
-        <p class="body">Using IllustrisTNG and a new public pipeline (Mack &amp; Genel 2025), this master's thesis quantifies how the large-scale cosmic web environment — voids, walls, filaments, nodes — modulates the frequency and nature of multiple-galaxy mergers, potentially informing new models of galaxy formation.</p>
-        <div class="methods"><strong>Methods:</strong> hydrodynamical simulations (IllustrisTNG) · merger trees · cosmic web segmentation · HPC (PLGrid)</div>
+        <p class="body">Using IllustrisTNG and the public pipeline by Mack &amp; Genel (2025), this master's thesis quantifies how the large-scale cosmic web environment — voids, walls, filaments, nodes — modulates the frequency and nature of multiple-galaxy mergers.</p>
+        <div class="methods"><strong>Methods:</strong> IllustrisTNG · merger trees · cosmic web segmentation · HPC (PLGrid)</div>
       </div>
 
-      <!-- Open A — Pairwise velocities emulator -->
       <div class="pcard open-card" data-status="open">
         <div class="pcard-top">
           <span class="pcard-tag">Peculiar velocities · Machine learning</span>
@@ -232,11 +281,10 @@
         </div>
         <h3>Pairwise velocities &amp; the local universe</h3>
         <p class="hook">Cosmology describes the universe as a whole — but we observe it from one particular corner of it. Our local environment is not average, and if we ignore that, our measurements of how fast structure grows may be quietly biased.</p>
-        <p class="body">This project trains a machine-learning emulator on simulated galaxy pair statistics to explore how different profiles of pairwise velocities in the local universe propagate into inferences of fσ₈ — the key parameter combining the growth rate of structure with the amplitude of matter clustering.</p>
-        <div class="methods"><strong>Methods:</strong> N-body simulations · emulator / ML methods (Gaussian processes or neural networks) · statistical inference</div>
+        <p class="body">The mean pairwise velocity v₁₂ has already been measured from the Quijote simulations and used to constrain fσ₈ via a full likelihood with Cobaya. The same statistic has been measured from constrained simulations of our local universe. The project asks: does our local v₁₂ profile produce a biased fσ₈?</p>
+        <div class="methods"><strong>Methods:</strong> N-body simulations · Gaussian process emulator · Cobaya · statistical inference</div>
       </div>
 
-      <!-- Open B — Mass profile from timing argument -->
       <div class="pcard open-card" data-status="open">
         <div class="pcard-top">
           <span class="pcard-tag">Local universe · Dynamics</span>
@@ -244,11 +292,10 @@
         </div>
         <h3>A mass profile of the Local Group</h3>
         <p class="hook">The Timing Argument is a powerful but blunt tool: it gives you one number — the total mass of the Local Group. What if we could turn it into a scalpel?</p>
-        <p class="body">By applying the Timing Argument not just to the MW–Andromeda pair but to the full population of Milky Way satellite galaxies at different radii, this project constructs a mass profile of the Local Group — enclosed mass as a function of distance — from kinematics alone.</p>
+        <p class="body">By applying the Timing Argument to the full population of Milky Way satellite galaxies at different radii, this project constructs a mass profile of the Local Group — enclosed mass as a function of distance from the centre — from kinematics alone.</p>
         <div class="methods"><strong>Methods:</strong> satellite galaxy catalogues · dynamical modelling · numerical methods</div>
       </div>
 
-      <!-- Open C — Topology of the cosmic web -->
       <div class="pcard open-card" data-status="open">
         <div class="pcard-top">
           <span class="pcard-tag">Cosmic web · Topology</span>
@@ -256,23 +303,33 @@
         </div>
         <h3>Topology of the cosmic web</h3>
         <p class="hook">The cosmic web is not random. Filaments connect nodes, voids are bounded by walls, and these structures persist — or dissolve — across cosmic time. Topology gives us a language to describe their shape and their fate.</p>
-        <p class="body">This project uses tools from persistent homology and caustic theory to characterise when and where structures in the cosmic web form, merge, and disappear — asking which topological features are robust signals of the underlying cosmology, and which are noise.</p>
-        <div class="methods"><strong>Methods:</strong> topological data analysis (persistent homology) · N-body simulation data · cosmic web segmentation</div>
+        <p class="body">This project uses persistent homology and caustic theory to characterise when and where structures in the cosmic web form, merge, and disappear — asking which topological features are robust signals of the underlying cosmology, and which are noise.</p>
+        <div class="methods"><strong>Methods:</strong> persistent homology · N-body simulations · cosmic web segmentation</div>
       </div>
 
-      <!-- Open D — Dark energy reconstruction from H(z) -->
       <div class="pcard open-card" data-status="open">
         <div class="pcard-top">
           <span class="pcard-tag">Dark energy · Observations</span>
           <span class="status-badge badge-open">Open</span>
         </div>
         <h3>Reconstructing dark energy from cosmic chronometers</h3>
-        <p class="hook">We don't need to assume a model for dark energy to measure it. Cosmic chronometers — old, passively evolving galaxies whose relative ages tell us how fast the universe was expanding at different moments in history — give us H(z) directly from observations. What does that expansion history tell us about the nature of gravity itself?</p>
-        <p class="body">This project uses H(z) measurements from cosmic chronometers to reconstruct the effective equation of state of dark energy, ω_x(z), within the framework of f(R) gravity — without restricting to any specific functional form such as Hu-Sawicki. The goal is to ask: what family of f(R) theories is consistent with what we actually observe?</p>
-        <div class="methods"><strong>Methods:</strong> Gaussian process regression · H(z) data compilation · f(R) gravity · statistical inference</div>
+        <p class="hook">We don't need to assume a model for dark energy to measure it. Cosmic chronometers — old, passively evolving galaxies whose relative ages tell us how fast the universe was expanding at different moments — give us H(z) directly from observations. What does that expansion history tell us about the nature of gravity itself?</p>
+        <p class="body">This project uses H(z) measurements from cosmic chronometers to reconstruct the effective equation of state of dark energy, ω_x(z), within the framework of f(R) gravity — without restricting to any specific functional form. The goal: what family of f(R) theories is consistent with what we actually observe?</p>
+        <div class="methods"><strong>Methods:</strong> Gaussian process regression · H(z) data · f(R) gravity · statistical inference</div>
       </div>
 
-    </div><!-- /project-list -->
+      <div class="pcard open-card" data-status="open">
+        <div class="pcard-top">
+          <span class="pcard-tag">Dark energy · Bayesian inference</span>
+          <span class="status-badge badge-open">Open</span>
+        </div>
+        <h3>Bayesian comparison of dark energy models</h3>
+        <p class="hook">The standard cosmological model has a well-known theoretical problem: nobody knows why the cosmological constant has the value it does. Dozens of alternatives have been proposed. But rather than testing them one by one, can we let the data itself rank them objectively?</p>
+        <p class="body">This project applies Bayesian model comparison to a set of physically motivated dark energy equations of state — CPL, SEoS, JJE, and the ONE parameterisation family — using CMB, BAO, Type Ia supernovae, and cosmic chronometer data. The goal is to compute Bayes factors and ask which models the data actually prefers.</p>
+        <div class="methods"><strong>Methods:</strong> Bayesian inference · MCMC (Cobaya) · Savage–Dickey ratio · CLASS Boltzmann solver</div>
+      </div>
+
+    </div>
   </div>
 </div>
 
@@ -297,7 +354,6 @@
 </footer>
 
 <script>
-  // mobile nav
   const toggle = document.getElementById('navtoggle');
   const links = document.getElementById('navlinks');
   toggle.addEventListener('click', () => {
@@ -309,15 +365,20 @@
     toggle.setAttribute('aria-expanded', 'false');
   }));
 
-  // filter
-  const btns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.pcard');
-  btns.forEach(btn => {
+  document.querySelectorAll('.detail-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
+      const panel = btn.nextElementSibling;
+      const isOpen = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  });
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const f = btn.dataset.filter;
-      cards.forEach(card => {
+      document.querySelectorAll('.pcard').forEach(card => {
         card.style.display = (f === 'all' || card.dataset.status === f) ? '' : 'none';
       });
     });
