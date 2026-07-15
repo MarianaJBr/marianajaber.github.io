@@ -176,6 +176,11 @@
   /* team */
   .team-grid{
     display:grid;
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  .team-row{
+    display:grid;
     grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
     gap:24px;
   }
@@ -461,25 +466,32 @@
       <h2>Meet the team</h2>
     </div>
     <div class="team-grid">
+      <!-- PI row -->
       <div class="team-card">
         <span class="role">Principal investigator</span>
         <h3><a href="../index.html#about">Mariana Jaber</a></h3>
         <p>Cosmologist leading the project, with expertise in theoretical modelling, cosmological inference, and the physics of large-scale structure.</p>
       </div>
-      <div class="team-card">
-        <span class="role">Simulations &amp; data analysis</span>
-        <h3><a href="https://github.com/antotaverna">Antonela Taverna</a></h3>
-        <p>Doctor in Astronomy and Physics, National University of Córdoba. Handles large cosmological simulations and the study of the cosmic web in observations and simulations.</p>
+      <!-- Group members row -->
+      <div class="team-row">
+        <div class="team-card">
+          <span class="role">Simulations &amp; data analysis</span>
+          <h3><a href="https://github.com/antotaverna">Antonela Taverna</a></h3>
+          <p>Doctor in Astronomy and Physics, National University of Córdoba. Handles large cosmological simulations and the study of the cosmic web in observations and simulations.</p>
+        </div>
+        <div class="team-card">
+          <span class="role">Theory &amp; simulations</span>
+          <h3><a href="https://nbi.ku.dk/english/theses/masters-theses/rasmus-strid/">Rasmus Strid</a></h3>
+          <p>Doctoral researcher with a master's in Physics from the University of Copenhagen. Connects theory and simulations, extending analytical templates toward more realistic scenarios.</p>
+        </div>
       </div>
-      <div class="team-card">
-        <span class="role">Theory &amp; simulations</span>
-        <h3><a href="https://nbi.ku.dk/english/theses/masters-theses/rasmus-strid/">Rasmus Strid</a></h3>
-        <p>Doctoral researcher with a master's in Physics from the University of Copenhagen. Connects theory and simulations, extending analytical templates toward more realistic scenarios.</p>
-      </div>
-      <div class="team-card">
-        <span class="role">External collaborator</span>
-        <h3><a href="https://oliver-newton.com/">Oliver Newton</a></h3>
-        <p>Marie Skłodowska-Curie Fellow in the Astrophysics Research Group at the University of Surrey, working on dwarf galaxies, dark matter substructure, and the galaxy–environment connection.</p>
+      <!-- External collaborators row -->
+      <div class="team-row">
+        <div class="team-card">
+          <span class="role">External collaborator</span>
+          <h3><a href="https://oliver-newton.com/">Oliver Newton</a></h3>
+          <p>Marie Skłodowska-Curie Fellow in the Astrophysics Research Group at the University of Surrey, working on dwarf galaxies, dark matter substructure, and the galaxy–environment connection.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -709,6 +721,7 @@
         <span class="badge">Scientific Results</span>
       </div>
       <a class="repo-link" href="https://github.com/PAIRSteam">github.com/PAIRSteam ↗</a>
+      <a class="repo-link" style="margin-top:12px;" href="https://www.benty-fields.com/members?groupid=1095">Weekly cosmo coffee ↗</a>
     </div>
   </div>
 </section>
@@ -733,6 +746,7 @@
       <a href="../index.html#about">About</a>
       <a href="../index.html#research">Research</a>
       <a href="../cv/CV.pdf">CV</a>
+      <a href="https://www.benty-fields.com/members?groupid=1095">Cosmo coffee ↗</a>
       <a href="../index.html#contact">Contact</a>
     </nav>
   </div>
